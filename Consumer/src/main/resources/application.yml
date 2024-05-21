@@ -1,0 +1,13 @@
+# 消费者服务器(浏览器)端口：8093
+
+server:
+  port: 8093
+spring:
+  application:
+    name: Consumer
+eureka:
+  client:
+    # 客户端服务器启动时，自动注册到注册中心服务器EurekaServer中
+    service-url:
+      # 注册中心服务器EurekaServer地址
+      defaultZone: http://localhost:8090/eureka/

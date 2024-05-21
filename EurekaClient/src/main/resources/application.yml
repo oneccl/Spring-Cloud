@@ -1,0 +1,14 @@
+# 生产者服务器(微服务)端口：8091、8092
+
+server:
+  port: 8092
+spring:
+  application:
+    name: EurekaClient
+eureka:
+  client:
+    # 客户端服务器启动时，自动注册到注册中心服务器EurekaServer中
+    service-url:
+      # 注册中心服务器EurekaServer地址
+      defaultZone: http://localhost:8090/eureka/
+

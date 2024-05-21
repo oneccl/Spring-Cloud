@@ -1,0 +1,21 @@
+# 注册中心服务器配置
+
+# 1、在yml或properties文件中配置如下信息
+# 2、在启动类上添加注解@EnableEurekaServer：标注注册中心服务器允许注册
+server:
+  port: 8090
+spring:
+  application:
+    name: EurekaServer
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 作为其它服务器的注册地址，当服务启动时，该服务会自动注册到当前路径(注册中心服务器)
+    service-url:
+      # https协议是由SSL/TLS+http协议构建的可进行加密传输、身份认证的网络协议
+      # 要比http协议安全；http的信息是明文传输，https则是SSL/TLS加密传输
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    # 注册中心服务器不需要自动注册给自己(默认都是true)
+    register-with-eureka: false
+    fetch-registry: false
